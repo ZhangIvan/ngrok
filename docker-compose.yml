@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  ngrok:
+    build:
+      .
+    container_name: ngrok
+    privileged: true
+    ports:
+      - 8010:80
+      - 8011:443
+    restart: always
+    volumes:
+      - ./:/ngrok
+    environment:
+      - NGROK_DOMAIN=ngrok.demo.com
